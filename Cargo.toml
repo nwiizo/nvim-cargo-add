@@ -1,0 +1,27 @@
+[package]
+name = "nvim-cargo-add"
+version = "0.1.0"
+edition = "2021"
+authors = ["nwiizo"]
+description = "A Neovim plugin for managing Cargo dependencies"
+repository = "https://github.com/nwiizo/nvim-cargo-add"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+mlua = { version = "0.9", features = ["module", "serialize", "luajit"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+
+[dev-dependencies]
+mlua = { version = "0.9", features = ["vendored", "luajit"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
