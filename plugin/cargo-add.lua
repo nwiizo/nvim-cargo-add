@@ -15,7 +15,7 @@ end
 vim.g.loaded_cargo_add = 1
 
 -- Initialize the plugin
-local ok, cargo_add = pcall(require, "nvim-cargo-add")
+local ok, cargo_add = pcall(require, "nvim_cargo_add")
 if not ok then
 	vim.api.nvim_err_writeln("Failed to load nvim-cargo-add: " .. cargo_add)
 	return

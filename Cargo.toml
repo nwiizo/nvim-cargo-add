@@ -8,17 +8,19 @@ repository = "https://github.com/nwiizo/nvim-cargo-add"
 license = "MIT"
 
 [lib]
+name = "nvim_cargo_add"
 crate-type = ["cdylib"]
 
 [dependencies]
-mlua = { version = "0.9", features = ["module", "serialize", "luajit"] }
+mlua = { version = "0.9", features = ["luajit", "module"] }  # moduleフィーチャーを追加
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1.0", features = ["full"] }
 reqwest = { version = "0.11", features = ["json"] }
 
+# dev-dependenciesからvendoredを削除
 [dev-dependencies]
-mlua = { version = "0.9", features = ["vendored", "luajit"] }
+mlua = { version = "0.9", features = ["luajit"] }
 
 [profile.release]
 opt-level = 3
