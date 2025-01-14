@@ -26,6 +26,7 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 ```lua
 {
     "nwiizo/nvim-cargo-add",
+    dependencies = { "saecki/crates.nvim" },
     build = function()
         vim.notify("Building nvim-cargo-add...", vim.log.levels.INFO)
         local result = vim.fn.system("cargo build --release")
@@ -91,6 +92,7 @@ For local development:
 ```lua
 {
     "nwiizo/nvim-cargo-add",
+    dependencies = { "saecki/crates.nvim" },
     dir = vim.fn.expand("~/path/to/local/nvim-cargo-add"),
     build = function()
         local plugin_dir = vim.fn.expand("~/path/to/local/nvim-cargo-add")
